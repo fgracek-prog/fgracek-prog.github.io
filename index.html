@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Filip Gracek: dane produktowe (PIM), sprzedaż online i automatyzacja z AI. Wrocław, zdalnie lub hybrydowo.">
+<meta name="theme-color" content="#070b14">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Filip Gracek · PIM, e-commerce i automatyzacja z AI">
+<meta property="og:description" content="Dane produktowe, sprzedaż online i automatyzacja z AI. Projekty, doświadczenie i kontakt.">
+<meta property="og:url" content="https://fgracek-prog.github.io/">
+<meta property="og:image" content="https://fgracek-prog.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235b7cff'/%3E%3Cstop offset='1' stop-color='%233fd2e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='white'%3EFG%3C/text%3E%3C/svg%3E">
+<title>Filip Gracek</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ciemna strona z poświatą i siatką; hero z dużą typografią i kartą rekordu, potem siatka kafelków (bento) z liczbami i projektami, oś doświadczenia, pas narzędzi, kontakt. Jeden, celowo ciemny wygląd. */
+:root {
+  color-scheme: dark;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #070b14; --bg-2: #0c1220; --card: rgba(255,255,255,.035); --card-hover: rgba(255,255,255,.06);
+  --line: rgba(255,255,255,.09); --line-strong: rgba(255,255,255,.16);
+  --fg: #eef2fb; --muted: #95a1ba; --dim: #6b7690;
+  --blue: #5b7cff; --cyan: #3fd2e8; --amber: #ffb547;
+  --f-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--f-body); overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+.inner { max-width: 1160px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.mono { font-family: var(--f-mono); }
+.grad { background: linear-gradient(100deg, var(--blue) 0%, var(--cyan) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Tło: poświaty i siatka */
+.bgfx { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.bgfx::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 70%); opacity: .55; }
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .5; }
+.orb.a { width: 560px; height: 560px; left: -140px; top: -180px; background: var(--blue); }
+.orb.b { width: 460px; height: 460px; right: -120px; top: 120px; background: var(--cyan); opacity: .28; }
+@media (prefers-reduced-motion: no-preference) {
+  .orb.a { animation: drift 18s ease-in-out infinite alternate; }
+  .orb.b { animation: drift 22s ease-in-out infinite alternate-reverse; }
+  @keyframes drift { to { transform: translate(60px, 40px) scale(1.08); } }
+}
+
+/* Nawigacja */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; padding-block: 14px; }
+.nav .bar { display: flex; align-items: center; gap: 20px; padding: 10px 12px 10px 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(9,14,26,.7); backdrop-filter: blur(16px); }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 600 15px var(--f-display); }
+.logo i { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; font: 700 13px var(--f-display); font-style: normal; color: #fff; background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+.nav ul { list-style: none; display: flex; gap: 6px; margin: 0 0 0 auto; padding: 0; }
+.nav ul a { display: block; padding: 7px 12px; border-radius: 10px; text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; }
+.nav ul a:hover { color: var(--fg); background: var(--card-hover); }
+.nav .cta { text-decoration: none; font: 600 14px var(--f-body); padding: 9px 16px; border-radius: 10px; background: var(--fg); color: var(--bg); white-space: nowrap; }
+
+/* Hero */
+.hero { padding-block: 72px 56px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--card); font-size: 13px; color: var(--muted); }
+.pill b { width: 8px; height: 8px; border-radius: 50%; background: #3ee08f; box-shadow: 0 0 0 4px rgba(62,224,143,.18); }
+.hero h1 { font-weight: 800; font-size: clamp(40px, 6.4vw, 78px); line-height: 1.02; letter-spacing: -.035em; margin-top: 26px; }
+.hero .lead { color: var(--muted); font-size: clamp(17px, 1.6vw, 19px); margin-top: 24px; max-width: 52ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 600 15px var(--f-body); padding: 13px 20px; border-radius: 12px; border: 1px solid var(--line-strong); }
+.btn.primary { border: 0; color: #fff; background: linear-gradient(100deg, var(--blue), #4a9cf0 60%, var(--cyan)); box-shadow: 0 10px 30px -10px rgba(91,124,255,.7); }
+.btn.ghost { background: var(--card); }
+
+.record { position: relative; border-radius: 22px; padding: 1px; background: linear-gradient(160deg, rgba(91,124,255,.6), rgba(63,210,232,.15) 40%, rgba(255,255,255,.06)); }
+.record .in { border-radius: 21px; background: rgba(12,18,32,.88); backdrop-filter: blur(14px); padding: 22px; }
+.record .top { display: flex; align-items: center; gap: 14px; }
+.avatar { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; font: 800 20px var(--f-display); color: #fff; background: linear-gradient(135deg, #2f4fe0, #1597b0); }
+.record .top b { font: 600 17px var(--f-display); display: block; }
+.record .top span { font-size: 14px; color: var(--muted); }
+.record .top .avatar { color: #fff; font-size: 20px; }
+.record dl { margin: 18px 0 0; display: grid; gap: 0; }
+.record dl div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.record dt { font: 500 11px/1.9 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+.record dd { margin: 0; text-align: right; }
+
+/* Bento */
+.label { font: 500 12px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cyan); }
+.sec { padding-block: 64px 0; }
+.sec h2 { font-weight: 700; font-size: clamp(28px, 4vw, 44px); letter-spacing: -.03em; margin-top: 10px; }
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.tile { position: relative; border: 1px solid var(--line); border-radius: 22px; background: var(--card); padding: 26px; overflow: hidden; min-width: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .tile { transition: border-color .25s, background .25s, transform .25s; }
+  .tile:hover { border-color: var(--line-strong); background: var(--card-hover); transform: translateY(-2px); }
+}
+.tile .tag { font: 500 11px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.tile h3 { font-weight: 600; font-size: 22px; letter-spacing: -.015em; margin-top: 12px; }
+.tile p { color: var(--muted); margin-top: 10px; font-size: 15px; }
+.num { font: 800 clamp(34px, 4.4vw, 52px)/1 var(--f-display); letter-spacing: -.035em; }
+.num-cap { color: var(--muted); font-size: 14px; margin-top: 10px; display: block; }
+.s3 { grid-column: span 3; } .s4 { grid-column: span 4; } .s5 { grid-column: span 5; } .s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s8 { grid-column: span 8; }
+
+/* Mini-wizualizacje */
+.vis-sizes { display: flex; align-items: center; gap: 18px; margin-top: 22px; flex-wrap: wrap; }
+.dots { display: grid; grid-template-columns: repeat(7, 14px); gap: 6px; }
+.dots i { width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid var(--line-strong); }
+.dots.after { grid-template-columns: repeat(2, 30px); gap: 8px; }
+.dots.after i { width: 30px; height: 30px; border: 0; border-radius: 8px; background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+.vis-sizes .to { color: var(--dim); font: 500 12px var(--f-mono); }
+.meter { margin-top: 22px; }
+.meter .track { height: 10px; border-radius: 6px; background: rgba(255,255,255,.07); overflow: hidden; }
+.meter .fill { height: 100%; width: 80%; border-radius: 6px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+.meter span { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.result { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--fg); }
+.result b { color: var(--amber); font-weight: 600; }
+
+.pipe { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+.pipe span { font: 500 12px var(--f-mono); padding: 8px 11px; border-radius: 10px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.03); }
+.pipe span.hl { border: 0; color: #fff; background: linear-gradient(100deg, var(--blue), var(--cyan)); }
+.pipe em { font-style: normal; color: var(--dim); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.chips span { font-size: 13px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--fg); }
+
+.feature { background: linear-gradient(150deg, rgba(91,124,255,.18), rgba(63,210,232,.06) 50%, rgba(255,255,255,.02)); border-color: rgba(91,124,255,.35); }
+.term { margin-top: 20px; border-radius: 14px; background: rgba(4,7,14,.75); border: 1px solid var(--line); padding: 16px 18px; font: 13px/1.85 var(--f-mono); color: var(--muted); overflow-x: auto; }
+.term .ok { color: #3ee08f; } .term .k { color: var(--cyan); } .term .w { color: var(--amber); }
+
+/* Doświadczenie */
+.xp { display: grid; gap: 12px; margin-top: 32px; }
+.job { display: grid; grid-template-columns: 170px minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 22px 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+.job .when { font: 500 13px var(--f-mono); color: var(--dim); font-variant-numeric: tabular-nums; }
+.job h3 { font-weight: 600; font-size: 18px; }
+.job p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.job .org { font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-strong); white-space: nowrap; color: var(--muted); }
+
+/* Narzędzia: przewijany pas */
+.marquee { margin-top: 32px; border-block: 1px solid var(--line); overflow: hidden; padding-block: 18px; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.track-m { display: flex; gap: 12px; width: max-content; }
+.track-m span { font: 500 15px var(--f-display); padding: 10px 18px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); white-space: nowrap; }
+@media (prefers-reduced-motion: no-preference) { .track-m { animation: slide 40s linear infinite; } @keyframes slide { to { transform: translateX(-50%); } } }
+.creds { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.creds .tile ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 15px; display: grid; gap: 6px; }
+
+/* Kontakt */
+.contact { margin-block: 72px 48px; position: relative; border-radius: 28px; padding: 1px; background: linear-gradient(120deg, rgba(91,124,255,.7), rgba(63,210,232,.5)); }
+.contact .in { border-radius: 27px; background: radial-gradient(ellipse at 20% 0%, rgba(91,124,255,.25), transparent 60%), var(--bg-2); padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+.contact h2 { font-weight: 800; font-size: clamp(30px, 4.4vw, 50px); line-height: 1.05; letter-spacing: -.035em; }
+.contact p { color: var(--muted); margin-top: 14px; }
+.mail { display: grid; gap: 10px; }
+.mail .row { display: flex; flex-wrap: wrap; gap: 10px; }
+.mail code { flex: 1 1 220px; font: 500 16px var(--f-mono); padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.04); color: var(--fg); user-select: all; }
+.mail button { font: 600 15px var(--f-body); border: 0; border-radius: 12px; padding: 14px 20px; color: #fff; cursor: pointer; background: linear-gradient(100deg, var(--blue), var(--cyan)); }
+.copied { font-size: 14px; color: var(--muted); min-height: 1.4em; }
+footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
+
+/* Wejście */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1 { animation-delay: .08s; } .d2 { animation-delay: .16s; } .d3 { animation-delay: .24s; } .d4 { animation-delay: .32s; }
+  @keyframes rise { from { opacity: .001; transform: translateY(16px); } }
+}
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; padding-top: 40px; }
+  .s3 { grid-column: span 6; } .s4, .s5, .s7, .s8 { grid-column: span 12; } .s6 { grid-column: span 12; }
+  .contact .in { grid-template-columns: 1fr; }
+  .job { grid-template-columns: 1fr; gap: 6px; }
+  .job .org { justify-self: start; }
+}
+@media (max-width: 720px) { .nav ul { display: none; } .nav .cta { margin-left: auto; } .creds { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .s3 { grid-column: span 12; } .tile { padding: 22px; } }
+</style>
+</head>
+<body>
+
+
+<div class="bgfx" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div></div>
+
+<div class="nav"><div class="inner"><nav class="bar" aria-label="Menu">
+  <a class="logo" href="#top"><i>FG</i>Filip Gracek</a>
+  <ul><li><a href="#projekty">Projekty</a></li><li><a href="#po-godzinach">Po godzinach</a></li><li><a href="#doswiadczenie">Doświadczenie</a></li><li><a href="#narzedzia">Narzędzia</a></li></ul>
+  <a class="cta" href="#kontakt">Kontakt</a>
+</nav></div></div>
+
+<header class="inner hero" id="top">
+  <div>
+    <span class="pill rise"><b></b>Otwarty na nowe role · Wrocław</span>
+    <h1 class="rise d1">Dane produktowe, sprzedaż online i <span class="grad">automatyzacja z&nbsp;AI</span>.</h1>
+    <p class="lead rise d2">Od 2017 roku w e-commerce. Porządkuję ofertę dla dużego katalogu, analizuję sprzedaż i buduję automatyzacje, które oszczędzają zespołom godziny pracy.</p>
+    <div class="actions rise d3"><a class="btn primary" href="#projekty">Zobacz projekty →</a><a class="btn ghost" href="#kontakt">Napisz do mnie</a></div>
+  </div>
+  <aside class="record rise d4" aria-label="Profil"><div class="in">
+    <div class="top"><span class="avatar">FG</span><div><b>Filip Gracek</b><span>Product Information Manager</span></div></div>
+    <dl>
+      <div><dt>Firma</dt><dd>Artgeist (Bimago, Murando)</dd></div>
+      <div><dt>Obszar</dt><dd>PIM · e-commerce · AI</dd></div>
+      <div><dt>Katalog</dt><dd class="mono">~1,5 mln SKU</dd></div>
+      <div><dt>Tryb</dt><dd>Zdalnie lub hybrydowo</dd></div>
+    </dl>
+  </div></aside>
+</header>
+
+<main class="inner">
+  <section class="sec" id="projekty">
+    <span class="label">Wybrane projekty</span>
+    <h2>Mniej opowiadania, <span class="grad">więcej efektów</span></h2>
+    <div class="bento">
+
+      <div class="tile s3"><span class="num grad">~1,5 mln</span><span class="num-cap">SKU w katalogu, za którego dane odpowiadam</span></div>
+      <div class="tile s3"><span class="num grad">&gt;50%</span><span class="num-cap">mniej pracy ręcznej po moich automatyzacjach</span></div>
+      <div class="tile s3"><span class="num grad">~400k</span><span class="num-cap">zł obrotu we własnej sprzedaży w 8 miesięcy</span></div>
+      <div class="tile s3"><span class="num grad">2×</span><span class="num-cap">migracja danych do nowego systemu PIM</span></div>
+
+      <article class="tile s7">
+        <span class="tag">Artgeist · Power BI · pilotaż</span>
+        <h3>Uproszczenie oferty rozmiarowej</h3>
+        <p>Analiza wariantów w Power BI pokazała, że kilka rozmiarów daje ok. 80% sprzedaży. Mimo obaw biznesu i SEO przekonałem zespoły danymi i pilotażem poza sezonem.</p>
+        <div class="vis-sizes" aria-label="Z kilkunastu rozmiarów do 4 standardowych">
+          <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <span class="to">→</span>
+          <div class="dots after"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="meter"><div class="track"><div class="fill"></div></div><span>kilka rozmiarów ≈ 80% sprzedaży</span></div>
+        <div class="result"><b>Efekt:</b> przejrzystsza oferta, wyższa konwersja i 4 standardowe rozmiary, które pozwoliły zautomatyzować część produkcji.</div>
+      </article>
+
+      <article class="tile s5">
+        <span class="tag">Artgeist · AI workflows</span>
+        <h3>Automatyzacja wdrażania produktów</h3>
+        <p>Automatyzacje procesu wdrożeniowego, treści produktowe z AI i skrypty do grafik. Gdy zespół się zmniejszył, przejąłem jego obowiązki właśnie dzięki nim.</p>
+        <div class="pipe"><span>produkt</span><em>→</em><span>treści AI</span><em>→</em><span>grafiki</span><em>→</em><span class="hl">sprzedaż</span></div>
+        <div class="result"><b>Efekt:</b> ponad 50% mniej pracy ręcznej i mniej błędów.</div>
+      </article>
+
+      <article class="tile s5">
+        <span class="tag">Własna działalność · 2025–2026</span>
+        <h3>Sprzedaż na marketplace'ach od zera</h3>
+        <p>Oferty, promocje, Allegro Ads pod ROAS i CPC, marża w dropshippingu, automaty w BaseLinkerze, zwroty.</p>
+        <div class="chips"><span>Allegro</span><span>Empik</span><span>Erli</span><span>BaseLinker</span><span>WooCommerce</span></div>
+        <div class="result"><b>Efekt:</b> ok. 400 tys. zł obrotu brutto w 8 miesięcy.</div>
+      </article>
+
+      <article class="tile s7 feature">
+        <span class="tag">Projekt własny · Claude Code · Python</span>
+        <h3>Job Agent: agent AI, który codziennie przegląda dla mnie rynek pracy</h3>
+        <p>Pobiera oferty z kilku portali, ocenia je według moich kryteriów i przygotowuje CV z kontrolą ATS. Niczego nie wysyła sam: decyzja zawsze należy do mnie.</p>
+        <div class="term" aria-label="Przykładowy przebieg">
+          <div><span class="k">06:47</span> pobieranie ofert · RocketJobs, JustJoin, No Fluff Jobs, alerty</div>
+          <div><span class="k">06:52</span> filtry i ocena 0–100 <span class="ok">✓</span></div>
+          <div><span class="k">06:58</span> CV pod ofertę · kontrola ATS <span class="ok">OK</span></div>
+          <div><span class="k">07:02</span> statusy z Gmaila · dashboard · <span class="w">szkice do akceptacji</span></div>
+        </div>
+      </article>
+
+      <article class="tile s7">
+        <span class="tag">AI w pracy · Gemini · SEO</span>
+        <h3>GEM, który opisuje i kategoryzuje grafiki</h3>
+        <p>Własny GEM w Gemini analizuje grafikę produktu, nadaje jej tytuł według moich wytycznych i słów kluczowych od zespołu SEO, a potem dopasowuje produkt do właściwych kategorii.</p>
+        <div class="pipe"><span>grafika</span><em>→</em><span>analiza AI</span><em>→</em><span>tytuł z frazami SEO</span><em>→</em><span class="hl">kategoria</span></div>
+      </article>
+
+      <article class="tile s5">
+        <span class="tag">Artgeist · Project Lead · Jira</span>
+        <h3>Migracje danych do nowego PIM: 2020 i 2025</h3>
+        <p>Wymagania i user stories dla IT, mapowanie i walidacja danych, testy i odbiór wdrożenia.</p>
+        <div class="pipe"><span>wymagania</span><em>→</em><span>walidacja</span><em>→</em><span class="hl">wdrożenie</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="po-godzinach">
+    <span class="label">Po godzinach</span>
+    <h2>Automatyzuję też <span class="grad">własne życie</span></h2>
+    <div class="bento">
+      <article class="tile s4">
+        <span class="tag">n8n · AI · WhatsApp</span>
+        <h3>Poranny briefing</h3>
+        <p>Workflow w n8n, który codziennie przed pracą wysyła mi na WhatsAppa podsumowanie: pogoda, co ubrać dzieciom, plan dnia, ruch na drogach i wypadki.</p>
+        <div class="chips"><span>pogoda</span><span>kalendarz</span><span>ruch drogowy</span></div>
+      </article>
+      <article class="tile s4">
+        <span class="tag">Claude Code · Android</span>
+        <h3>Łowca tanich lotów</h3>
+        <p>Aplikacja na Androida na własny użytek, która pilnuje cen lotów według moich preferencji i daje znać, gdy pojawi się okazja.</p>
+        <div class="chips"><span>powiadomienia</span><span>własne kryteria</span></div>
+      </article>
+      <article class="tile s4">
+        <span class="tag">Claude Code · Android</span>
+        <h3>Osobisty trener</h3>
+        <p>Aplikacja na własny użytek, która łączy plan biegowy, dietę i ćwiczenia regeneracyjne w jednym asystencie.</p>
+        <div class="chips"><span>bieganie</span><span>dieta</span><span>regeneracja</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="doswiadczenie">
+    <span class="label">Doświadczenie</span>
+    <h2>Gdzie pracowałem</h2>
+    <div class="xp">
+      <div class="job"><span class="when">04.2023 – obecnie</span><div><h3>Product Information Manager</h3><p>Dane produktowe, analiza sprzedaży w Power BI, automatyzacje i AI. Do 07.2025 kierowałem zespołem 2 osób.</p></div><span class="org">Artgeist</span></div>
+      <div class="job"><span class="when">11.2025 – 06.2026</span><div><h3>Właściciel</h3><p>Sprzedaż na Allegro, Empik i Erli, BaseLinker, Allegro Ads.</p></div><span class="org">Własna działalność</span></div>
+      <div class="job"><span class="when">07.2017 – 04.2023</span><div><h3>Specjalista ds. administracji produktu</h3><p>Dane produktowe na wielu rynkach, migracja PIM, automatyzacja grafik.</p></div><span class="org">Artgeist</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="narzedzia">
+    <span class="label">Narzędzia</span>
+    <h2>Czym pracuję</h2>
+    <div class="marquee" aria-label="Narzędzia">
+      <div class="track-m">
+        <span>Claude</span><span>Claude Code</span><span>ChatGPT</span><span>Gemini</span><span>n8n</span><span>Power Automate</span><span>Power BI</span><span>SQL · BigQuery</span><span>GA4</span><span>Python</span><span>JavaScript</span><span>API</span><span>BaseLinker</span><span>Allegro Ads</span><span>WooCommerce</span><span>PIM</span><span>Jira</span>
+        <span aria-hidden="true">Claude</span><span aria-hidden="true">Claude Code</span><span aria-hidden="true">ChatGPT</span><span aria-hidden="true">Gemini</span><span aria-hidden="true">n8n</span><span aria-hidden="true">Power Automate</span><span aria-hidden="true">Power BI</span><span aria-hidden="true">SQL · BigQuery</span><span aria-hidden="true">GA4</span><span aria-hidden="true">Python</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">API</span><span aria-hidden="true">BaseLinker</span><span aria-hidden="true">Allegro Ads</span><span aria-hidden="true">WooCommerce</span><span aria-hidden="true">PIM</span><span aria-hidden="true">Jira</span>
+      </div>
+    </div>
+    <div class="creds">
+      <div class="tile"><span class="tag">Certyfikaty</span><ul><li>Google, Umiejętności Jutra AI 3.0 (2026)</li><li>Kurs UX &amp; UI (2021)</li><li>Adobe Photoshop i Illustrator (2021)</li></ul></div>
+      <div class="tile"><span class="tag">Wykształcenie</span><ul><li>Dolnośląska Szkoła Wyższa, Dziennikarstwo i Komunikacja Społeczna (2009–2012)</li></ul></div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt"><div class="in">
+    <div><span class="label">Kontakt</span><h2 style="margin-top:12px">Porozmawiajmy o&nbsp;<span class="grad">Twoim zespole</span></h2><p>Dane produktowe, e-commerce albo automatyzacja z AI. Wrocław, zdalnie lub hybrydowo.</p></div>
+    <div class="mail">
+      <div class="row"><code id="email">fgracek@gmail.com</code><button type="button" id="copy">Kopiuj adres</button></div>
+      <span class="copied" id="copied" aria-live="polite"></span>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="inner">© 2026 Filip Gracek</div></footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', async () => {
+  const out = document.getElementById('copied');
+  try { await navigator.clipboard.writeText('fgracek@gmail.com'); out.textContent = 'Skopiowano adres'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('email')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent = 'Zaznaczono, skopiuj Ctrl+C'; }
+});
+</script>
+
+</body>
+</html>
