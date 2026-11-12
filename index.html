@@ -122,14 +122,11 @@ p { margin: 0; }
 .pipe span.hl { border: 0; color: #fff; background: linear-gradient(100deg, var(--blue), var(--cyan)); }
 .pipe em { font-style: normal; color: var(--dim); }
 
-.split { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; align-items: start; }
-.minis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.mini { border: 1px solid var(--line); border-radius: 16px; padding: 16px; background: rgba(255,255,255,.02); }
-.mini b { display: block; font: 800 30px/1 var(--f-display); letter-spacing: -.03em; }
-.mini span { display: block; color: var(--muted); font-size: 13px; margin-top: 8px; }
-.role { margin-top: 14px; font-size: 14px; color: var(--muted); }
-.role b { color: var(--fg); font-weight: 600; }
-@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+.sec-lead { color: var(--muted); max-width: 70ch; margin-top: 14px; font-size: 16px; }
+.fact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+#po-godzinach .tile { display: flex; flex-direction: column; }
+#po-godzinach .tile .fact { margin-top: auto; }
+#po-godzinach .tile .chips { margin-bottom: 16px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .chips span { font-size: 13px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--fg); }
 
@@ -245,7 +242,7 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
         <div class="result"><b>Efekt:</b> ponad 50% mniej pracy ręcznej i mniej błędów.</div>
       </article>
 
-      <article class="tile s5">
+      <article class="tile s4">
         <span class="tag">Własna działalność · 2025–2026</span>
         <h3>Sprzedaż na marketplace'ach od zera</h3>
         <p>Oferty, promocje, Allegro Ads pod ROAS i CPC, marża w dropshippingu, automaty w BaseLinkerze, zwroty.</p>
@@ -253,75 +250,63 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
         <div class="result"><b>Efekt:</b> ok. 400 tys. zł obrotu brutto w 8 miesięcy.</div>
       </article>
 
-      <article class="tile s7 feature">
-        <span class="tag">Projekt własny · Claude Code · Python</span>
-        <h3>Job Agent: agent AI, który codziennie przegląda dla mnie rynek pracy</h3>
-        <p>Pobiera oferty z kilku portali, ocenia je według moich kryteriów i przygotowuje CV z kontrolą ATS. Niczego nie wysyła sam: decyzja zawsze należy do mnie.</p>
-        <div class="term" aria-label="Przykładowy przebieg">
-          <div><span class="k">06:47</span> pobieranie ofert · RocketJobs, JustJoin, No Fluff Jobs, alerty</div>
-          <div><span class="k">06:52</span> filtry i ocena 0–100 <span class="ok">✓</span></div>
-          <div><span class="k">06:58</span> CV pod ofertę · kontrola ATS <span class="ok">OK</span></div>
-          <div><span class="k">07:02</span> statusy z Gmaila · dashboard · <span class="w">szkice do akceptacji</span></div>
-        </div>
-      </article>
 
-      <article class="tile s7">
+      <article class="tile s4">
         <span class="tag">AI w pracy · Gemini · SEO</span>
         <h3>GEM, który opisuje i kategoryzuje grafiki</h3>
         <p>Własny GEM w Gemini analizuje grafikę produktu, nadaje jej tytuł według moich wytycznych i słów kluczowych od zespołu SEO, a potem dopasowuje produkt do właściwych kategorii.</p>
         <div class="pipe"><span>grafika</span><em>→</em><span>analiza AI</span><em>→</em><span>tytuł z frazami SEO</span><em>→</em><span class="hl">kategoria</span></div>
       </article>
 
-      <article class="tile s5">
+      <article class="tile s4">
         <span class="tag">Artgeist · Project Lead · Jira</span>
         <h3>Migracje danych do nowego PIM: 2020 i 2025</h3>
         <p>Wymagania i user stories dla IT, mapowanie i walidacja danych, testy i odbiór wdrożenia.</p>
         <div class="pipe"><span>wymagania</span><em>→</em><span>walidacja</span><em>→</em><span class="hl">wdrożenie</span></div>
       </article>
 
-      <article class="tile s12">
-        <span class="tag">Projekt własny · Claude Code · API bankowe (PSD2)</span>
-        <div class="split">
-          <div>
-            <h3>Budżet domowy: aplikacja, która rozlicza się sama z bankiem</h3>
-            <p>Zastąpiła arkusz prowadzony ręcznie od ponad roku. Transakcje spływają z banku kilka razy dziennie i czekają tylko na zatwierdzenie, z podpowiedzią kategorii. Dwie osoby widzą ten sam stan na komputerze i telefonie, a narzędzie do uzgadniania pilnuje, żeby saldo zgadzało się z bankiem co do grosza. Całość działa na darmowej infrastrukturze Google, bez serwera i kosztów utrzymania.</p>
-            <div class="pipe"><span>bank (PSD2)</span><em>→</em><span>reguły kategorii</span><em>→</em><span>do zatwierdzenia</span><em>→</em><span class="hl">plan i cele</span></div>
-            <p class="role"><b>Moja rola:</b> właściciel produktu, projekt UX i testy na prawdziwych danych. Kod i testy pisał Claude Code.</p>
-            <div class="chips"><span>Google Apps Script</span><span>Google Sheets</span><span>Enable Banking API</span><span>JavaScript</span><span>Playwright</span><span>Claude Code</span></div>
-          </div>
-          <div class="minis">
-            <div class="mini"><b class="grad">~3 tyg.</b><span>od pomysłu do codziennego użytku</span></div>
-            <div class="mini"><b class="grad">93%</b><span>transakcji z roku sparowanych automatycznie</span></div>
-            <div class="mini"><b class="grad">~170</b><span>testów automatycznych, także na telefonie</span></div>
-            <div class="mini"><b class="grad">66</b><span>reguł kategoryzacji nauczonych na historii</span></div>
-          </div>
-        </div>
-        <div class="result"><b>Efekt:</b> zero ręcznego przepisywania wydatków i saldo zgodne z bankiem co do grosza, sprawdzone na wyciągach z dwóch miesięcy.</div>
-      </article>
     </div>
   </section>
 
   <section class="sec" id="po-godzinach">
     <span class="label">Po godzinach</span>
     <h2>Automatyzuję też <span class="grad">własne życie</span></h2>
+    <p class="sec-lead">Narzędzia na własny użytek, budowane z Claude Code. Ja odpowiadam za pomysł, wymagania, decyzje produktowe i testy na co dzień, kod pisze AI.</p>
     <div class="bento">
+      <article class="tile s6">
+        <span class="tag">Python · Claude Code · Gmail</span>
+        <h3>Job Agent</h3>
+        <p>Codziennie rano pobiera oferty pracy z kilku portali, ocenia je według moich kryteriów i przygotowuje CV pod ofertę z kontrolą ATS. Niczego nie wysyła sam, decyzja zawsze należy do mnie.</p>
+        <div class="chips"><span>scraping ofert</span><span>ocena 0–100</span><span>ATS</span><span>dashboard</span></div>
+        <div class="fact">Codzienny przebieg o 6:47, około 200 ofert w historii.</div>
+      </article>
+      <article class="tile s6">
+        <span class="tag">Apps Script · API bankowe (PSD2)</span>
+        <h3>Budżet domowy</h3>
+        <p>Aplikacja webowa, która zastąpiła ręcznie prowadzony arkusz. Transakcje spływają z banku i czekają tylko na zatwierdzenie z podpowiedzią kategorii, a saldo zgadza się z bankiem co do grosza. Dostęp do banku tylko do odczytu, bez serwera i kosztów.</p>
+        <div class="chips"><span>Google Sheets</span><span>JavaScript</span><span>Playwright</span></div>
+        <div class="fact">93% transakcji z roku sparowanych automatycznie, ok. 170 testów.</div>
+      </article>
+      <article class="tile s4">
+        <span class="tag">Kotlin · Android · Claude API</span>
+        <h3>Rytm</h3>
+        <p>Trener biegowy i dietetyk w jednej aplikacji. Łączy dane z zegarka Garmin, pogodę i przepisy z Cookidoo, a plan treningów i menu układa Claude. Treningi trafiają prosto na zegarek.</p>
+        <div class="chips"><span>Garmin</span><span>Cookidoo</span><span>Claude API</span></div>
+        <div class="fact">17 wydań w 3 tygodnie.</div>
+      </article>
+      <article class="tile s4">
+        <span class="tag">Python · GitHub Actions</span>
+        <h3>Loty</h3>
+        <p>Tracker tanich lotów na weekendowe city breaki z Wrocławia, Poznania i Katowic. Co 4 godziny łączy trzy źródła cen, porównuje z historią i wysyła push na telefon, gdy trafi się okazja.</p>
+        <div class="chips"><span>REST API</span><span>RSS</span><span>powiadomienia push</span></div>
+        <div class="fact">Ponad 90 przebiegów, koszt 0 zł miesięcznie.</div>
+      </article>
       <article class="tile s4">
         <span class="tag">n8n · AI · WhatsApp</span>
         <h3>Poranny briefing</h3>
-        <p>Workflow w n8n, który codziennie przed pracą wysyła mi na WhatsAppa podsumowanie: pogoda, co ubrać dzieciom, plan dnia, ruch na drogach i wypadki.</p>
+        <p>Workflow w n8n, który codziennie przed pracą wysyła mi na WhatsAppa podsumowanie: pogoda, plan dnia, ruch na drogach i wypadki.</p>
         <div class="chips"><span>pogoda</span><span>kalendarz</span><span>ruch drogowy</span></div>
-      </article>
-      <article class="tile s4">
-        <span class="tag">Claude Code · Android</span>
-        <h3>Łowca tanich lotów</h3>
-        <p>Aplikacja na Androida na własny użytek, która pilnuje cen lotów według moich preferencji i daje znać, gdy pojawi się okazja.</p>
-        <div class="chips"><span>powiadomienia</span><span>własne kryteria</span></div>
-      </article>
-      <article class="tile s4">
-        <span class="tag">Claude Code · Android</span>
-        <h3>Osobisty trener</h3>
-        <p>Aplikacja na własny użytek, która łączy plan biegowy, dietę i ćwiczenia regeneracyjne w jednym asystencie. Pobiera dane treningowe z Garmina, przepisy z Cookidoo, a plan układa Claude przez API.</p>
-        <div class="chips"><span>Claude API</span><span>Garmin</span><span>Cookidoo</span></div>
+        <div class="fact">Działa codziennie, bez mojego udziału.</div>
       </article>
     </div>
   </section>
