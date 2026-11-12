@@ -101,7 +101,7 @@ p { margin: 0; }
 .tile p { color: var(--muted); margin-top: 10px; font-size: 15px; }
 .num { font: 800 clamp(34px, 4.4vw, 52px)/1 var(--f-display); letter-spacing: -.035em; }
 .num-cap { color: var(--muted); font-size: 14px; margin-top: 10px; display: block; }
-.s3 { grid-column: span 3; } .s4 { grid-column: span 4; } .s5 { grid-column: span 5; } .s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s8 { grid-column: span 8; }
+.s3 { grid-column: span 3; } .s4 { grid-column: span 4; } .s5 { grid-column: span 5; } .s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s8 { grid-column: span 8; } .s12 { grid-column: span 12; }
 
 /* Mini-wizualizacje */
 .vis-sizes { display: flex; align-items: center; gap: 18px; margin-top: 22px; flex-wrap: wrap; }
@@ -122,6 +122,14 @@ p { margin: 0; }
 .pipe span.hl { border: 0; color: #fff; background: linear-gradient(100deg, var(--blue), var(--cyan)); }
 .pipe em { font-style: normal; color: var(--dim); }
 
+.split { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.minis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mini { border: 1px solid var(--line); border-radius: 16px; padding: 16px; background: rgba(255,255,255,.02); }
+.mini b { display: block; font: 800 30px/1 var(--f-display); letter-spacing: -.03em; }
+.mini span { display: block; color: var(--muted); font-size: 13px; margin-top: 8px; }
+.role { margin-top: 14px; font-size: 14px; color: var(--muted); }
+.role b { color: var(--fg); font-weight: 600; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .chips span { font-size: 13px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--fg); }
 
@@ -269,6 +277,26 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
         <h3>Migracje danych do nowego PIM: 2020 i 2025</h3>
         <p>Wymagania i user stories dla IT, mapowanie i walidacja danych, testy i odbiór wdrożenia.</p>
         <div class="pipe"><span>wymagania</span><em>→</em><span>walidacja</span><em>→</em><span class="hl">wdrożenie</span></div>
+      </article>
+
+      <article class="tile s12">
+        <span class="tag">Projekt własny · Claude Code · API bankowe (PSD2)</span>
+        <div class="split">
+          <div>
+            <h3>Budżet domowy: aplikacja, która rozlicza się sama z bankiem</h3>
+            <p>Zastąpiła arkusz prowadzony ręcznie od ponad roku. Transakcje spływają z banku kilka razy dziennie i czekają tylko na zatwierdzenie, z podpowiedzią kategorii. Dwie osoby widzą ten sam stan na komputerze i telefonie, a narzędzie do uzgadniania pilnuje, żeby saldo zgadzało się z bankiem co do grosza. Całość działa na darmowej infrastrukturze Google, bez serwera i kosztów utrzymania.</p>
+            <div class="pipe"><span>bank (PSD2)</span><em>→</em><span>reguły kategorii</span><em>→</em><span>do zatwierdzenia</span><em>→</em><span class="hl">plan i cele</span></div>
+            <p class="role"><b>Moja rola:</b> właściciel produktu, projekt UX i testy na prawdziwych danych. Kod i testy pisał Claude Code.</p>
+            <div class="chips"><span>Google Apps Script</span><span>Google Sheets</span><span>Enable Banking API</span><span>JavaScript</span><span>Playwright</span><span>Claude Code</span></div>
+          </div>
+          <div class="minis">
+            <div class="mini"><b class="grad">~3 tyg.</b><span>od pomysłu do codziennego użytku</span></div>
+            <div class="mini"><b class="grad">93%</b><span>transakcji z roku sparowanych automatycznie</span></div>
+            <div class="mini"><b class="grad">~170</b><span>testów automatycznych, także na telefonie</span></div>
+            <div class="mini"><b class="grad">66</b><span>reguł kategoryzacji nauczonych na historii</span></div>
+          </div>
+        </div>
+        <div class="result"><b>Efekt:</b> zero ręcznego przepisywania wydatków i saldo zgodne z bankiem co do grosza, sprawdzone na wyciągach z dwóch miesięcy.</div>
       </article>
     </div>
   </section>
