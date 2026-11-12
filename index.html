@@ -163,9 +163,9 @@ p { margin: 0; }
 .contact h2 { font-weight: 800; font-size: clamp(30px, 4.4vw, 50px); line-height: 1.05; letter-spacing: -.035em; }
 .contact p { color: var(--muted); margin-top: 14px; }
 .mail { display: grid; gap: 10px; }
-.mail .row { display: flex; flex-wrap: wrap; gap: 10px; }
-.mail code { flex: 1 1 220px; font: 500 16px var(--f-mono); padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.04); color: var(--fg); user-select: all; }
-.mail button { font: 600 15px var(--f-body); border: 0; border-radius: 12px; padding: 14px 20px; color: #fff; cursor: pointer; background: linear-gradient(100deg, var(--blue), var(--cyan)); }
+.mail .row { display: flex; flex-wrap: nowrap; gap: 10px; align-items: stretch; }
+.mail code { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 16px var(--f-mono); padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.04); color: var(--fg); user-select: all; }
+.mail button { flex: none; white-space: nowrap; font: 600 15px var(--f-body); border: 0; border-radius: 12px; padding: 14px 20px; color: #fff; cursor: pointer; background: linear-gradient(100deg, var(--blue), var(--cyan)); }
 .mail .li { justify-content: center; color: var(--fg); }
 .copied { font-size: 14px; color: var(--muted); min-height: 1.4em; }
 footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
@@ -186,6 +186,17 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
 }
 @media (max-width: 720px) { .nav ul { display: none; } .nav .cta { margin-left: auto; } .creds { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .s3 { grid-column: span 12; } .tile { padding: 22px; } }
+@media (max-width: 560px) {
+  .pipe.tight { gap: 4px; flex-wrap: nowrap; }
+  .pipe.tight span { font-size: 10px; padding: 6px 6px; white-space: nowrap; }
+  .pipe.tight em { font-size: 10px; }
+  .mail code { font-size: 14px; padding: 12px 12px; }
+  .mail button { font-size: 14px; padding: 12px 14px; }
+}
+@media (max-width: 380px) {
+  .mail code { font-size: 12.5px; padding: 12px 10px; }
+  .mail button { padding: 12px 11px; }
+}
 </style>
 </head>
 <body>
