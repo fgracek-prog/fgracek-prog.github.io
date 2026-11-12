@@ -131,8 +131,9 @@ p { margin: 0; }
 #projekty article.tile > .result { margin-top: auto; line-height: 1.55; min-height: calc(2 * 1.55em + 17px); }
 #projekty article.tile > :nth-last-child(2) { margin-bottom: 18px; }
 @media (max-width: 860px) { #projekty article.tile > .result { min-height: 0; } }
-.pipe.tight { gap: 6px; }
-.pipe.tight span { font-size: 11.5px; padding: 7px 9px; }
+.pipe.tight { gap: 5px; }
+.pipe.tight em { font-size: 12px; }
+.pipe.tight span { font-size: 11px; padding: 7px 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .chips span { font-size: 13px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--fg); }
 
@@ -261,14 +262,16 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
         <span class="tag">AI w pracy · Gemini · SEO</span>
         <h3>GEM, który opisuje i kategoryzuje grafiki</h3>
         <p>Własny GEM w Gemini analizuje grafikę produktu, nadaje jej tytuł według moich wytycznych i słów kluczowych od zespołu SEO, a potem dopasowuje produkt do właściwych kategorii.</p>
-        <div class="pipe"><span>grafika</span><em>→</em><span>analiza AI</span><em>→</em><span>tytuł z frazami SEO</span><em>→</em><span class="hl">kategoria</span></div>
+        <div class="pipe tight"><span>grafika</span><em>→</em><span>AI</span><em>→</em><span>tytuł</span><em>→</em><span class="hl">kategoria</span></div>
+        <div class="result"><b>Efekt:</b> tytuły i kategorie zgodne z wytycznymi SEO, bez ręcznego opisywania każdej grafiki.</div>
       </article>
 
       <article class="tile s4">
         <span class="tag">Artgeist · Project Lead · Jira</span>
         <h3>Migracje danych do nowego PIM: 2020 i 2025</h3>
-        <p>Wymagania i user stories dla IT, mapowanie i walidacja danych, testy i odbiór wdrożenia.</p>
-        <div class="pipe"><span>wymagania</span><em>→</em><span>walidacja</span><em>→</em><span class="hl">wdrożenie</span></div>
+        <p>Dwa razy prowadziłem przeniesienie danych katalogu (ok. 1,5 mln produktów) do nowego systemu PIM: w 2020 nieformalnie, w 2025 jako Project Lead. Zbierałem potrzeby zespołów sklepów własnych i marketplace'ów, spisywałem wymagania i user stories dla IT w Jirze i pilnowałem terminów. Mapowałem i walidowałem dane, testowałem nowe funkcje i odbierałem wdrożenie.</p>
+        <div class="pipe tight"><span>wymagania</span><em>→</em><span>walidacja</span><em>→</em><span class="hl">wdrożenie</span></div>
+        <div class="result"><b>Efekt:</b> ok. 1,5 mln produktów przeniesionych do nowego systemu, dwa razy.</div>
       </article>
 
     </div>
