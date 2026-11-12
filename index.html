@@ -127,6 +127,12 @@ p { margin: 0; }
 #po-godzinach .tile { display: flex; flex-direction: column; }
 #po-godzinach .tile .fact { margin-top: auto; }
 #po-godzinach .tile .chips { margin-bottom: 16px; }
+#projekty article.tile { display: flex; flex-direction: column; }
+#projekty article.tile > .result { margin-top: auto; line-height: 1.55; min-height: calc(2 * 1.55em + 17px); }
+#projekty article.tile > :nth-last-child(2) { margin-bottom: 18px; }
+@media (max-width: 860px) { #projekty article.tile > .result { min-height: 0; } }
+.pipe.tight { gap: 6px; }
+.pipe.tight span { font-size: 11.5px; padding: 7px 9px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .chips span { font-size: 13px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid var(--line); color: var(--fg); }
 
@@ -238,7 +244,7 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
         <span class="tag">Artgeist · AI workflows</span>
         <h3>Automatyzacja wdrażania produktów</h3>
         <p>Automatyzacje procesu wdrożeniowego, treści produktowe z AI i skrypty do grafik. Gdy zespół się zmniejszył, przejąłem jego obowiązki właśnie dzięki nim.</p>
-        <div class="pipe"><span>produkt</span><em>→</em><span>treści AI</span><em>→</em><span>grafiki</span><em>→</em><span class="hl">sprzedaż</span></div>
+        <div class="pipe tight"><span>produkt</span><em>→</em><span>treści AI</span><em>→</em><span>grafiki</span><em>→</em><span class="hl">sprzedaż</span></div>
         <div class="result"><b>Efekt:</b> ponad 50% mniej pracy ręcznej i mniej błędów.</div>
       </article>
 
