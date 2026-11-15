@@ -198,6 +198,14 @@ footer { padding-bottom: 36px; color: var(--dim); font-size: 13px; }
   .mail button { padding: 12px 11px; }
 }
 </style>
+<style>
+.consent{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:50;padding:16px 18px;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:rgba(12,18,32,.96);color:#eef2fb;font:14px/1.5 "Hanken Grotesk","Segoe UI",system-ui,sans-serif;box-shadow:0 20px 40px -20px #000}
+.consent[hidden]{display:none}
+.consent p{margin:0 0 12px;color:#95a1ba}
+.consent .btns{display:flex;gap:10px;flex-wrap:wrap}
+.consent button{font:600 14px "Hanken Grotesk","Segoe UI",system-ui,sans-serif;padding:10px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:transparent;color:#eef2fb;cursor:pointer}
+.consent button.yes{border:0;color:#fff;background:linear-gradient(100deg,#5b7cff,#3fd2e8)}
+</style>
 </head>
 <body>
 
@@ -376,5 +384,39 @@ document.getElementById('copy').addEventListener('click', async () => {
 });
 </script>
 
+<div class="consent" id="cookie-consent" hidden role="dialog" aria-label="Zgoda na pliki cookies">
+<p>Ta strona używa Google Analytics, żeby zobaczyć, ile osób ją odwiedza i z których stron. Dane zbieram dopiero po Twojej zgodzie. Decyzję możesz zmienić, czyszcząc dane strony w przeglądarce.</p>
+<div class="btns">
+<button type="button" class="yes">Akceptuję</button>
+<button type="button" class="no">Odrzucam</button>
+</div>
+</div>
+<script>
+(function () {
+  var ID = 'G-8PR0EMMQ9X', KEY = 'fg-cookies';
+  function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function loadGA() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', ID);
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+    document.head.appendChild(s);
+  }
+  var box = document.getElementById('cookie-consent');
+  var saved = read();
+  if (saved === 'yes') { loadGA(); }
+  else if (saved !== 'no') { box.hidden = false; }
+  box.querySelector('.yes').addEventListener('click', function () {
+    write('yes'); box.hidden = true; loadGA();
+  });
+  box.querySelector('.no').addEventListener('click', function () {
+    write('no'); box.hidden = true;
+  });
+})();
+</script>
 </body>
 </html>
